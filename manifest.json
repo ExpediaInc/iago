@@ -1,0 +1,4 @@
+{
+    "project": "ean-iago-distribution",
+    "deployables": ["target/iago-package-dist.zip"]
+}
