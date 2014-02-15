@@ -52,6 +52,7 @@ trait ParrotLauncherConfig extends Config[ParrotLauncher] with ParrotCommonConfi
   var role = ""
   var scheme = "http"
   var serverDiskInMb = 60
+  var feederXmx = 1744
   var serverXmx = 4000
   var tcpConnectTimeoutInMs = Integer.MAX_VALUE
   var thriftClientId = ""
