@@ -92,6 +92,7 @@ class ParrotLauncher(config: ParrotLauncherConfig) {
     ("reuseConnections" -> config.reuseConnections.toString),
     ("reuseFile" -> config.reuseFile.toString),
     ("scheme" -> scheme),
+    ("feederXmx" -> config.feederXmx.toString),
     ("serverXmx" -> config.serverXmx.toString),
     ("tcpConnectTimeoutInMs" -> config.tcpConnectTimeoutInMs.toString),
     ("thriftClientId" -> config.thriftClientId),
