@@ -24,7 +24,7 @@ See https://github.com/ExpediaInc/iago
 
 - `README-EAN.md` is the file you are reading now. 
 - `manifest.json` is required for EAN deployments to work.
-- .gitignore
+- `.gitignore`
 
 Other branches are topic branches for developing new Iago features.
 
