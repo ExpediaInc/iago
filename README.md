@@ -19,19 +19,25 @@ EAN's (forked) Iago repo
 See https://github.com/ExpediaInc/iago
 
 `master` branch - a direct copy of the Twitter maintained repo that we forked.
-`ean-iago-deploy` branch - our version of master with two extra files: manifest.json and README-EAN.md
 
-`README-EAN.md` is the file you are reading now. `manifest.json` is required for EAN deployments to work.
+`manifest` branch:
+
+- `README-EAN.md` is the file you are reading now. 
+- `manifest.json` is required for EAN deployments to work.
+- .gitignore
+
+Other branches are topic branches for developing new Iago features.
 
 Maintenance of EAN's fork of Iago
 ---------------------------------
 
-New commits from Twitter's repo should be periodically merged into the master branch of EAN's forked Iago repo. The changes can then be merged from EAN's master branch into the ean-iago-deploy branch. When the ean-iago-deploy branch is pushed into the ExpediaInc github repo the Bamboo build will create a new version of the distribution, see below. 
+New commits from Twitter's repo should be periodically merged into the master branch of EAN's forked Iago repo.
 
 Bamboo build
 ------------
 
 See https://bamboo.ean/browse/PLATFORM-IAGO
 
-Bamboo is used to build the ean-iago-deploy branch of EAN's Iago fork. The build creates the ean-iago distribution and
-uploads it to Amazon S3. Once uploaded to S3 it is then ready for deployment using Chef. 
+Bamboo is used to build the manifest branch and either the master branch or any topic branch from EAN's Iago fork. 
+The build creates the ean-iago distribution and uploads it to Amazon S3. Once uploaded to S3 it is then ready for 
+deployment using Chef. 
