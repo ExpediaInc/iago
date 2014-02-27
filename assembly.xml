@@ -4,8 +4,7 @@
   <formats>
     <format>zip</format>
   </formats>
-  <includeBaseDirectory>true</includeBaseDirectory>
-  <baseDirectory>${final-package-name}</baseDirectory>
+  <includeBaseDirectory>false</includeBaseDirectory>
   <fileSets>
     <fileSet>
       <directory>${maven-assembly-plugin-files}</directory>
