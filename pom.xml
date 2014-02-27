@@ -1,0 +1,95 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.ean.platform</groupId>
+    <artifactId>ean-platform-parent</artifactId>
+    <version>0.0.329</version>
+  </parent>
+
+  <groupId>com.ean.platform.products</groupId>
+  <artifactId>ean-iago-distribution</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>${project.artifactId}</name>
+  <url>https://github.com:ExpediaInc/iago.git</url>
+  <description>A project for creating an Iago distribution and making it EAN deployable.</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <iago-version>0.6.14</iago-version>
+    <maven-assembly-plugin-files>${project.build.directory}/assembly-files</maven-assembly-plugin-files>
+    <final-package-name>iago-package-dist</final-package-name>
+  </properties>
+  
+  <dependencies>
+    <dependency>
+      <groupId>com.twitter</groupId>
+      <artifactId>iago</artifactId>
+      <version>${iago-version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>${final-package-name}</finalName>
+    
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-copy-dependencies</id>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${maven-assembly-plugin-files}/libs</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>default-copy</id>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${maven-assembly-plugin-files}</outputDirectory>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.twitter</groupId>
+                  <artifactId>iago</artifactId>
+                  <version>${iago-version}</version>
+                  <destFileName>iago.jar</destFileName>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+        
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-single</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <descriptors>
+                <descriptor>assembly.xml</descriptor>
+              </descriptors>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>
