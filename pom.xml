@@ -48,6 +48,7 @@
             </goals>
             <configuration>
               <outputDirectory>${maven-assembly-plugin-files}/libs</outputDirectory>
+              <excludeArtifactIds>iago</excludeArtifactIds>
             </configuration>
           </execution>
           <execution>
@@ -62,7 +63,6 @@
                   <groupId>com.twitter</groupId>
                   <artifactId>iago</artifactId>
                   <version>${iago-version}</version>
-                  <destFileName>iago.jar</destFileName>
                 </artifactItem>
               </artifactItems>
             </configuration>
